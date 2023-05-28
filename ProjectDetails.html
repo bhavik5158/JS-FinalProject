@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Shopping App</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+        }
+
+        header {
+            box-shadow: 0 2px 5px #ccc;
+            padding-top: 16px;
+            padding-bottom: 16px;
+            background-color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        main {
+            margin-top: 100px;
+        }
+
+        .header-main {
+            max-width: 84%;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .shoplane-logo {
+            font-size: 36px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .shoplane-logo span {
+            font-weight: bolder;
+
+        }
+
+        .header-main nav ul {
+            list-style: none;
+        }
+
+        .header-main nav ul li {
+            display: inline;
+            font-weight: 600;
+            margin: auto 15px;
+        }
+
+        .header-main nav ul li a {
+            text-decoration: none;
+            color: black;
+            margin: 0;
+            padding: 0;
+        }
+
+        .search-wrapper {
+            position: relative;
+            width: 370px
+        }
+
+        .search-wrapper i {
+            color: #999;
+            position: absolute;
+            left: 15px;
+            top: 26%;
+        }
+
+        .search-box {
+            margin: auto;
+            background-color: #F5F2F2;
+            padding: 10px 24px 10px 40px;
+            border: 1px solid rgb(245, 242, 242);
+            border: none;
+            outline: none;
+            width: 100%;
+        }
+
+        .cart-wrapper {
+            position: relative;
+            margin-right: 35px;
+        }
+
+        .cart-wrapper p {
+            font-size: 12px;
+            margin: 0;
+            text-align: center;
+            font-weight: 600;
+            background-color: #009688;
+            border-radius: 50%;
+            color: white;
+            width: 18px;
+            height: 18px;
+            position: absolute;
+            top: -12px;
+            right: -12px;
+        }
+
+        .right-section-nav {
+            display: inline-flex;
+            align-items: center;
+            justify-content: end;
+        }
+
+        .right-section-nav img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+        }
+
+        .container {
+            max-width: 82%;
+            margin: 0 auto;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3%;
+        }
+
+        .left-side {
+            flex: 35%;
+        }
+
+        .right-side {
+            flex: 60%;
+            padding-left: 35px;
+        }
+
+        .preview_image_wrapper {
+            width: 90%;
+        }
+
+        #productTitle {
+            margin: 0 auto;
+            font-weight: 300;
+            letter-spacing: -2px;
+            font-size: 44px;
+        }
+
+        #productBrand {
+            font-size: 20px;
+            font-weight: 600;
+            color: #666666;
+            letter-spacing: 1px;
+        }
+
+        .productPriceWrap {
+            font-size: 20px;
+            letter-spacing: 1px;
+            font-weight: 200;
+            color: #1B1919;
+        }
+
+        #productPrice {
+            font-weight: 700;
+            color: #009688;
+        }
+
+        .description_word {
+            font-size: 20px;
+            font-weight: 200;
+            letter-spacing: 1px;
+            color: #1B1919;
+        }
+
+        #productDescription {
+            font-weight: 300;
+            font-size: 16px;
+            color: #86939E;
+        }
+
+        #productImages {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: left;
+        }
+
+        #productImages div {
+            width: 10%;
+            height: min-content;
+            margin: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            /* height: 5vh; */
+        }
+
+        .active {
+            border: 2px solid #009688;
+            padding: 4px;
+        }
+
+        .addToCartBtn {
+            padding: 11px 20px;
+            border: none;
+            border-radius: 4px;
+            letter-spacing: 2px;
+            color: white;
+            background-color: #009688;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            margin-top: 4.5vh;
+            cursor: pointer;
+        }
+
+        .addToCartBtn:hover {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        @media screen and (max-width:480px) {
+            .container {
+                display: block;
+            }
+
+            .left-side {
+                margin: 15px auto;
+            }
+
+            .right-side {
+                padding: 15px;
+                margin: 15px auto;
+            }
+
+            #productTitle {
+                font-size: 38px;
+            }
+            .search-wrapper{
+                display: none;
+            }
+            .header-main{
+                max-width: 94%;
+            }
+            .header-main nav ul li{
+                margin-left: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-main">
+            <a href="./HomePage.html" class="shoplane-logo"><span>SHOP</span>LANE</a>
+            <nav>
+                <ul>
+                    <li><a href="#clothDivWrap">CLOTHING</a></li>
+                    <li><a href="#accessoryDivWrap">ACCESSORIES</a></li>
+                </ul>
+            </nav>
+
+            <div class="search-wrapper">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input class="search-box" placeholder="Search for Clothing and Accessories" type="text" id="">
+            </div>
+
+            <div class="right-section-nav">
+                <div class="cart-wrapper">
+                    <p id="cartTotal">0</p>
+                    <a style="color: black;" href="./CheckoutPg.html">
+                        <i class="fa-solid fa-cart-shopping fa-lg"></i>
+                    </a>
+                </div>
+                <img src="https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png"
+                    alt="">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="left-side">
+                <div class="preview_image_wrapper">
+                    <img width="100%" src="" alt="" id="previewImg">
+                </div>
+            </div>
+            <div class="right-side">
+                <h1 id="productTitle"></h1>
+                <p id="productBrand"></p>
+                <p class="productPriceWrap">Price: Rs <span id="productPrice"></span></p>
+                <p class="description_word">Description</p>
+                <p id="productDescription"></p>
+                <p class="description_word">Product Preview</p>
+                <div id="productImages">
+
+                </div>
+                <button class="addToCartBtn" onclick="addToCart()">Add to Cart</button>
+            </div>
+        </div>
+    </main>
+</body>
+<script>
+    let searchParams = new URL(window.location).searchParams
+    let productID = searchParams.get('pId')
+    let productData = {}
+    let imagesDiv = document.getElementById('productImages')
+    document.getElementById('cartTotal').innerText = localStorage.getItem('totalCartItems') ? localStorage.getItem('totalCartItems') : 0
+    
+    let productDetailHTTP = new XMLHttpRequest()
+    productDetailHTTP.open("GET", `https://5d76bf96515d1a0014085cf9.mockapi.io/product/${productID}`)
+    productDetailHTTP.onload = () => {
+        productData = JSON.parse(productDetailHTTP.responseText)
+        // console.log(productData)
+        setProductData()
+    }
+    productDetailHTTP.send()
+
+    function changeImg(link, e) {
+        let childEles = imagesDiv.children
+        for (let x of childEles) {
+            x.classList.remove('active')
+        }
+        document.getElementById('previewImg').setAttribute('src', link)
+        e.target.parentElement.classList.add('active')
+    }
+
+    function setProductData() {
+        document.getElementById('previewImg').setAttribute('src', productData.preview)
+        document.getElementById('productTitle').innerText = productData.name
+        document.getElementById('productBrand').innerText = productData.brand
+        document.getElementById('productPrice').innerText = productData.price
+        document.getElementById('productDescription').innerText = productData.description
+
+        productData.photos.forEach((link, ind) => {
+            let imgdiv_ = document.createElement('div')
+            let img_ = document.createElement('img')
+            img_.setAttribute('src', link)
+            img_.setAttribute('width', '100%')
+            img_.setAttribute('height', '100%')
+            imgdiv_.appendChild(img_)
+            imgdiv_.addEventListener('click', (e) => changeImg(link, e))
+            imagesDiv.appendChild(imgdiv_)
+            if (ind == 0) {
+                imgdiv_.classList.add('active')
+            }
+        })
+    }
+
+    function addToCart(){
+        let totalItems = 0
+        let cartData = JSON.parse(localStorage.getItem('cartData'))
+        if(!cartData){
+            localStorage.setItem('cartData', JSON.stringify([{ 'ID': productID, 'quantity': 1 }]));
+            localStorage.setItem( 'totalCartItems', 1 )
+            document.getElementById('cartTotal').innerText = 1
+        }
+        else{
+            let itemPresent = cartData.find((item) => item.ID  == productID)
+            if(itemPresent){
+                itemPresent.quantity += 1
+            }
+            else{
+                cartData.push({
+                    'ID': productID, 'quantity': 1
+                })
+            }
+            localStorage.setItem('cartData', JSON.stringify(cartData))
+        }
+
+        cartData.forEach((ele) => {
+            totalItems += ele.quantity
+        })
+        localStorage.setItem( 'totalCartItems', totalItems )
+        document.getElementById('cartTotal').innerText = totalItems
+    }
+
+</script>
+
+</html>

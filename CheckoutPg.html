@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Shopping App</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+        }
+
+        header {
+            box-shadow: 0 2px 5px #ccc;
+            padding-top: 16px;
+            padding-bottom: 16px;
+            background-color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        main {
+            margin-top: 100px;
+        }
+
+        .header-main {
+            max-width: 84%;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .shoplane-logo {
+            font-size: 36px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .shoplane-logo span {
+            font-weight: bolder;
+
+        }
+
+        .header-main nav ul {
+            list-style: none;
+        }
+
+        .header-main nav ul li {
+            display: inline;
+            font-weight: 600;
+            margin: auto 15px;
+        }
+
+        .header-main nav ul li a {
+            text-decoration: none;
+            color: black;
+            margin: 0;
+            padding: 0;
+        }
+
+        .search-wrapper {
+            position: relative;
+            width: 370px
+        }
+
+        .search-wrapper i {
+            color: #999;
+            position: absolute;
+            left: 15px;
+            top: 26%;
+        }
+
+        .search-box {
+            margin: auto;
+            background-color: #F5F2F2;
+            padding: 10px 24px 10px 40px;
+            border: 1px solid rgb(245, 242, 242);
+            border: none;
+            outline: none;
+            width: 100%;
+        }
+
+        .cart-wrapper {
+            position: relative;
+            margin-right: 35px;
+        }
+
+        .cart-wrapper p {
+            font-size: 12px;
+            margin: 0;
+            text-align: center;
+            font-weight: 600;
+            background-color: #009688;
+            border-radius: 50%;
+            color: white;
+            width: 18px;
+            height: 18px;
+            position: absolute;
+            top: -12px;
+            right: -12px;
+        }
+
+        .right-section-nav {
+            display: inline-flex;
+            align-items: center;
+            justify-content: end;
+        }
+
+        .right-section-nav img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+        }
+
+        /* -----------------------  Main Page CSS Starts ------------- */
+        .container {
+            max-width: 84%;
+            margin: auto;
+            padding: 1vh 0;
+        }
+
+        .wrapper-main {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #cart-Items {
+            flex: 40%;
+        }
+
+        #cart-Total {
+            flex: 40%;
+        }
+        .product-div{
+            display: flex;
+            max-width: 600px;
+            /* width: 90%; */
+            box-shadow: 0 2px 5px #ccc;
+            padding: 15px;
+            margin: 15px auto;
+        }
+        #cart-item-list div img{
+            width: 80px;
+            border-radius: 5px;
+        }
+        .product-details-div{
+            margin-left: 13px;
+        }
+        .product-details-div h4{
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        .product-details-div p{
+            margin-top: 10px;
+            margin-bottom: 0;
+        }
+        .box-wrapper{
+            margin-left: 3%;
+            box-shadow: 0 2px 5px #ccc;
+            border-radius: 7px;
+            padding: 20px;
+        }
+        .box-wrapper button{
+            margin-top: 15px;
+            padding: 10px 12px;
+            font-weight: 600;
+            font-size: 14px;
+            color: white;
+            background-color: #009688;
+            outline: none;
+            border: 0;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+        #cart-total-p{
+            font-weight: 800;
+            margin-left: 3px;
+            font-size: 24px;
+            opacity: 0.8;
+        }
+        .total-items-display{
+            font-weight: 300;
+        }
+        @media screen and (max-width:480px) {
+            .search-wrapper{
+                display: none;
+            }
+            .header-main{
+                max-width: 94%;
+            }
+            .header-main nav ul li{
+                margin-left: 5px;
+            }
+            .wrapper-main{
+                display: block;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-main">
+            <a href="./HomePage.html" class="shoplane-logo"><span>SHOP</span>LANE</a>
+            <nav>
+                <ul>
+                    <li><a href="./HomePage.html#clothDivWrap">CLOTHING</a></li>
+                    <li><a href="./HomePage.html#accessoryDivWrap">ACCESSORIES</a></li>
+                </ul>
+            </nav>
+
+            <div class="search-wrapper">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input class="search-box" placeholder="Search for Clothing and Accessories" type="text" id="">
+            </div>
+
+            <div class="right-section-nav">
+                <div class="cart-wrapper">
+                    <p id="cartTotal">0</p>
+                    <a href="#" style="color: black;">
+                        <i class="fa-solid fa-cart-shopping fa-lg"></i>
+                    </a>
+                </div>
+                <img src="https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png"
+                    alt="">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <h1>Checkout</h1>
+            <div class="wrapper-main">
+                <div id="cart-Items">
+                    <h3 class="total-items-display">Total Items: <span id="total-items-span">0</span></h3>
+                    <div id="cart-item-list">
+
+                    </div>
+                </div>
+                <div id="cart-Total">
+                    <div class="box-wrapper">
+                        <h2 style="margin-top: 0;">Total Amount</h2>
+                        <p>Amount: Rs <span id="cart-total-p"></span></p>
+                        <button onclick="placeOrder()" type="button">Place Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+<script>
+    let productList = []
+    let productsInCart = []
+
+    document.getElementById('cartTotal').innerText = localStorage.getItem('totalCartItems') ? localStorage.getItem('totalCartItems') : 0
+    document.getElementById('total-items-span').innerText = localStorage.getItem('totalCartItems') ? localStorage.getItem('totalCartItems') : 0
+
+    let fetchProducts = new XMLHttpRequest()
+    fetchProducts.open('GET', 'https://5d76bf96515d1a0014085cf9.mockapi.io/product')
+    fetchProducts.onload = () => {
+        if (fetchProducts.status == 200) {
+            productList = JSON.parse(fetchProducts.responseText)
+            console.log(productList)
+            loadFullData()
+            displayCartProducts()
+        }
+    }
+    fetchProducts.send()
+
+
+    let cartData = JSON.parse(localStorage.getItem('cartData'))
+
+    function loadFullData() {
+        cartData.forEach((ele) => {
+            let pID = ele.ID
+            let fullDetails = productList.find((item) => item.id == pID)
+            productsInCart.push(fullDetails)
+        })
+        console.log(productsInCart)
+        calculateTotal()
+    }
+
+    let cartItemsDiv = document.getElementById('cart-item-list')
+    function displayCartProducts(){
+        productsInCart.map((product) => {
+            let productDetail_ = cartData.find((item) => item.ID == product.id )
+
+            let div1 = document.createElement('div')
+            div1.classList.add('product-div')
+
+            let pIMG = document.createElement('img')
+            pIMG.src = product.photos[0]
+            pIMG.setAttribute('width', '100%')
+            pIMG.setAttribute('height', '100%')
+            div1.appendChild(pIMG)
+            
+            let detailDiv = document.createElement('div')
+            detailDiv.classList.add('product-details-div')
+
+            let productName = document.createElement('h4')
+            productName.innerText = product.name
+            detailDiv.appendChild(productName)
+
+            let productQuantity = document.createElement('p')
+            productQuantity.innerText = `x${productDetail_.quantity}`
+            detailDiv.appendChild(productQuantity)
+
+            let productAmount = document.createElement('p')
+            productAmount.innerText = `Amount: Rs ${(product.price)*productDetail_.quantity}`
+            detailDiv.appendChild(productAmount)
+
+            div1.appendChild(detailDiv)
+            cartItemsDiv.appendChild(div1)
+        })
+    }
+    function calculateTotal(){
+        let totalAmount = 0
+        productsInCart.forEach((product) => {
+            let productDetail_ = cartData.find((item) => item.ID == product.id )
+            totalAmount += productDetail_.quantity * product.price
+        })
+        document.getElementById('cart-total-p').innerText = `${totalAmount}`
+    }
+
+    function placeOrder(){
+        if(cartData.length > 0){
+            window.location.replace('./OrderConfirmation.html')
+            localStorage.removeItem('totalCartItems')
+            localStorage.removeItem('cartData')
+        }
+    }
+</script>
+
+</html>
